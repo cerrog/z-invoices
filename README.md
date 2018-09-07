@@ -2,11 +2,11 @@
 This project is a very simple REST API storing data in a SQL database.  The database is a H2 in-memory database.
 
 To build the project:
-From the root of the project, run the following command:  ./mvnw clean package
+From the root of the project, run the following command:  `./mvnw clean package`
 This will compile, run unit tests and package the jar file.
 
 To run the project (java 8 required):
-From the root of the project, run the following command:  java -jar target/coding-challenge-0.0.1-SNAPSHOT.jar
+From the root of the project, run the following command:  `java -jar target/coding-challenge-0.0.1-SNAPSHOT.jar`
 
 To interact with this REST API: 
 A Swagger-based interface is built-in: http://localhost:8080/swagger-ui.html#/
