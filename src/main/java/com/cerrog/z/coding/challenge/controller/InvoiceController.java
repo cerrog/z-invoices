@@ -13,6 +13,7 @@ import com.cerrog.z.coding.challenge.service.InvoiceSearchCriteria;
 import com.cerrog.z.coding.challenge.service.InvoiceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.util.Assert;
 import org.springframework.web.bind.annotation.*;
 
@@ -22,7 +23,7 @@ import javax.validation.Valid;
  * Created by gcerro on 2018-09-04.
  */
 @RestController
-@RequestMapping("/v1/invoices")
+@RequestMapping(value = "/v1/invoices", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
 public class InvoiceController {
 
 	private final InvoiceService service;
