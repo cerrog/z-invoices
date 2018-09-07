@@ -1,0 +1,8 @@
+CREATE TABLE invoices (
+    id BIGINT AUTO_INCREMENT,
+    invoice_number VARCHAR(64) NOT NULL,
+    po_number VARCHAR(64) NOT NULL,
+    due_date DATE NOT NULL,
+    amount_cents BIGINT NOT NULL,
+    created_at TIMESTAMP WITHOUT TIME ZONE NOT NULL DEFAULT CURRENT_TIMESTAMP ()
+);
