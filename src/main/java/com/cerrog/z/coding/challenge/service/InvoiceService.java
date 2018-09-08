@@ -82,6 +82,6 @@ public class InvoiceService {
 	private Pageable toPageable(InvoiceSearchCriteria criteria) {
 		return PageRequest.of(criteria.getPageNumber(),
 				criteria.getPageSize(),
-				Sort.by("createdAt").descending());
+				Sort.by("createdDateTime").descending());
 	}
 }

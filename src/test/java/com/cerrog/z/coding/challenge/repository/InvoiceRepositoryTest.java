@@ -57,7 +57,7 @@ public class InvoiceRepositoryTest {
 	public void givenInvoices_whenFindAll_thenReturnInvoicesOrdered() throws InterruptedException {
 		// given
 		InvoiceEntity invoice1 = entityManager.persist(createEntity());
-		Thread.sleep(1000); // Delay so we can compare createdAt
+		Thread.sleep(1000); // Delay so we can compare createdDateTime
 		InvoiceEntity invoice2 = entityManager.persist(createEntity());
 		entityManager.flush();
 		Pageable pageable = createPageable(10, 0);
@@ -147,7 +147,7 @@ public class InvoiceRepositoryTest {
 		InvoiceSearchCriteria criteria = new InvoiceSearchCriteria(null, null, limit, offset);
 		return PageRequest.of(criteria.getPageNumber(),
 				criteria.getPageSize(),
-				Sort.by("createdAt").descending());
+				Sort.by("createdDateTime").descending());
 	}
 
 	private void persistEntities(int count) {
@@ -162,7 +162,7 @@ public class InvoiceRepositoryTest {
 		ZonedDateTime now = ZonedDateTime.now();
 		InvoiceEntity entity = new InvoiceEntity();
 		entity.setAmountInCents(id * 100);
-		entity.setCreatedAt(now);
+		entity.setCreatedDateTime(now);
 		entity.setDueDate(now.plusDays(15).toLocalDate());
 		entity.setInvoiceId("INV-" + id);
 		entity.setPurchaseOrderNo("PO-" + id);

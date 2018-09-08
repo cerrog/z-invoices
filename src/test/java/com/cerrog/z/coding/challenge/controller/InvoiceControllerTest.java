@@ -82,7 +82,7 @@ public class InvoiceControllerTest {
 				.content(mapper.writeValueAsString(dto)))
 				.andExpect(status().isCreated())
 				.andExpect(jsonPath("$.id", is(createdDto.getId())))
-				.andExpect(jsonPath("$.created_at", is(createdDto.getCreatedAt().format(FORMATTER))));
+				.andExpect(jsonPath("$.created_at", is(createdDto.getCreatedDateTime().format(FORMATTER))));
 	}
 
 	@Test
@@ -155,7 +155,7 @@ public class InvoiceControllerTest {
 		InvoiceDto createdDto = new InvoiceDto();
 		BeanUtils.copyProperties(dto, createdDto);
 		createdDto.setId(random.nextLong());
-		createdDto.setCreatedAt(ZonedDateTime.now());
+		createdDto.setCreatedDateTime(ZonedDateTime.now());
 
 		return createdDto;
 	}

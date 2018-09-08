@@ -64,7 +64,7 @@ public class InvoiceServiceTest {
 		// given
 		InvoiceDto newInvoice = createDto();
 		assertNull(newInvoice.getId());
-		assertNull(newInvoice.getCreatedAt());
+		assertNull(newInvoice.getCreatedDateTime());
 
 		// when
 		Mockito.when(repository.save(any(InvoiceEntity.class))).thenReturn(toEntity(newInvoice));
@@ -72,7 +72,7 @@ public class InvoiceServiceTest {
 		// then
 		InvoiceDto createdInvoice = service.createInvoice(newInvoice);
 		assertNotNull(createdInvoice.getId());
-		assertNotNull(createdInvoice.getCreatedAt());
+		assertNotNull(createdInvoice.getCreatedDateTime());
 	}
 
 	@Test
@@ -130,7 +130,7 @@ public class InvoiceServiceTest {
 		ZonedDateTime now = ZonedDateTime.now();
 		InvoiceEntity entity = new InvoiceEntity();
 		entity.setAmountInCents(uniqueId * 100);
-		entity.setCreatedAt(now);
+		entity.setCreatedDateTime(now);
 		entity.setDueDate(now.plusDays(15).toLocalDate());
 		entity.setId(uniqueId);
 		entity.setInvoiceId("INV-" + uniqueId);
@@ -157,7 +157,7 @@ public class InvoiceServiceTest {
 		InvoiceEntity entity = new InvoiceEntity();
 		BeanUtils.copyProperties(dto, entity);
 		entity.setId(1L);
-		entity.setCreatedAt(ZonedDateTime.now());
+		entity.setCreatedDateTime(ZonedDateTime.now());
 		return entity;
 	}
 }

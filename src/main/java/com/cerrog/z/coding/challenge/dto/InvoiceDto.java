@@ -21,22 +21,22 @@ import java.time.ZonedDateTime;
  */
 @Data
 public class InvoiceDto {
-	@JsonProperty(access = JsonProperty.Access.READ_ONLY)
-	public Long id;
+	@JsonProperty
+	private Long id;
 	@JsonProperty(value = "invoice_number", required = true)
 	@NotBlank
-	public String invoiceId;
+	private String invoiceId;
 	@JsonProperty(value = "po_number", required = true)
 	@NotBlank
-	public String purchaseOrderNo;
+	private String purchaseOrderNo;
 	@JsonProperty(value = "due_date", required = true)
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
 	@NotNull
-	public LocalDate dueDate;
+	private LocalDate dueDate;
 	@JsonProperty(value = "amount_cents", required = true)
 	@NotNull
-	public Long amountInCents;
-	@JsonProperty(value = "created_at", access = JsonProperty.Access.READ_ONLY)
+	private Long amountInCents;
+	@JsonProperty(value = "created_at")
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss'Z'")
-	public ZonedDateTime createdAt;
+	private ZonedDateTime createdDateTime;
 }

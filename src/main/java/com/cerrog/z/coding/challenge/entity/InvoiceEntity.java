@@ -35,5 +35,5 @@ public class InvoiceEntity {
 	public Long amountInCents;
 	@Column(name = "created_at")
 	@CreationTimestamp
-	public ZonedDateTime createdAt;
+	public ZonedDateTime createdDateTime;
 }
